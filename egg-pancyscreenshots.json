@@ -1,0 +1,72 @@
+{
+    "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
+    "meta": {
+        "version": "PTDL_v2",
+        "update_url": null
+    },
+    "exported_at": "2026-06-12T20:00:00+00:00",
+    "name": "PancyScreenShots",
+    "author": "pancy@studios.com",
+    "description": "Microservicio de Screenshots e IA en Go usando Chromedp.",
+    "features": null,
+    "docker_images": {
+        "Puppeteer (Debian)": "ghcr.io/parkervcp/yolks:puppeteer"
+    },
+    "file_denylist": [],
+    "startup": "./PancyScreenShots",
+    "config": {
+        "files": "{}",
+        "startup": "{\r\n    \"done\": \"Apagando servidor PancyScreenShots\"\r\n}",
+        "logs": "{}",
+        "stop": "^C"
+    },
+    "scripts": {
+        "installation": {
+            "script": "#!/bin/bash\necho \"Instalacion completa.\"",
+            "container": "debian:buster-slim",
+            "entrypoint": "bash"
+        }
+    },
+    "variables": [
+        {
+            "name": "Port",
+            "description": "El puerto interno donde correrá el servidor web",
+            "env_variable": "PORT",
+            "default_value": "3000",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|numeric|max:65535",
+            "field_type": "text"
+        },
+        {
+            "name": "Debug Port",
+            "description": "Puerto opcional para acceso remoto (dejar en blanco si no se usa)",
+            "env_variable": "DEBUG_PORT",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "nullable|numeric|max:65535",
+            "field_type": "text"
+        },
+        {
+            "name": "Token",
+            "description": "Bearer token de autenticación",
+            "env_variable": "AUTH_SCREENSHOTS",
+            "default_value": "secret",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string",
+            "field_type": "text"
+        },
+        {
+            "name": "Env",
+            "description": "Entorno (prod = headless)",
+            "env_variable": "ENV",
+            "default_value": "prod",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string",
+            "field_type": "text"
+        }
+    ]
+}

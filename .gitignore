@@ -1,0 +1,47 @@
+# Binarios
+.*exe
+*.dll
+*.so
+*.dylib
+*.x86_64
+*.aarch64
+
+# Archivos de configuración
+*.config
+*.ini
+*.yaml
+*.yml
+*.env
+
+# Archivos de log
+*.log
+
+# Archivos de caché
+*.cache
+*.tmp
+*.bak
+*.swp
+
+# Archivos de dependencias
+node_modules/
+vendor/
+# Archivos de construcción
+dist/
+build/
+out/
+
+# Archivos de IDE
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+
+# Archivos no publicos
+train_scam.js
+scam_dataset.json
+scam_model/
+chrome_profile_nsfw/
+chrome_profile_sfw/
+
+package-lock.json
