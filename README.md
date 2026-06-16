@@ -45,12 +45,15 @@
    DISCORD_CHANNEL_TAKE=id_del_canal_screenshots_take
    ```
 
-3. **Instalar Dependencias de IA (Node.js)**
+3. **Instalar Dependencias de IA (Node.js) y Entrenar Modelo**
    ```bash
    cd nsfw-detector
    npm install --legacy-peer-deps
-   # Opcional: Reentrenar el modelo Anti-Scam
-   # node train_scam.js
+   
+   # ¡IMPORTANTE! El modelo Anti-Scam no viene incluido en el repositorio.
+   # Debes entrenarlo tú mismo ejecutando el siguiente comando:
+   node train_scam.js
+   
    cd ..
    ```
 
