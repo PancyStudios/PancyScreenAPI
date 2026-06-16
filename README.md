@@ -39,6 +39,10 @@
    ```env
    PORT=3000
    AUTH_SCREENSHOTS=tu_token_secreto_aqui
+   DISCORD_BOT_TOKEN=tu_token_del_bot_de_discord
+   DISCORD_CHANNEL_LOG=id_del_canal_screenshots_web_log
+   DISCORD_CHANNEL_ERROR=id_del_canal_screenshots_web_error
+   DISCORD_CHANNEL_TAKE=id_del_canal_screenshots_take
    ```
 
 3. **Instalar Dependencias de IA (Node.js)**

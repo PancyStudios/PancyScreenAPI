@@ -10,6 +10,7 @@ import (
 
 	"github.com/PancyStudios/PancyScreenShots/pkg/api"
 	"github.com/PancyStudios/PancyScreenShots/pkg/browser"
+	"github.com/PancyStudios/PancyScreenShots/pkg/discord"
 	"github.com/PancyStudios/PancyScreenShots/pkg/queue"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/limiter"
@@ -25,6 +26,9 @@ var (
 func main() {
 
 	_ = godotenv.Load()
+
+	// Iniciar cliente de Discord
+	discord.Init()
 	// 0. Iniciar microservicio Node.js
 	log.Println("Iniciando detector NSFW (Node.js)...")
 	nodeCmd := exec.Command("node", "nsfw-detector/server.js")
@@ -86,7 +90,7 @@ func main() {
 	app.Use(func(c *fiber.Ctx) error {
 		authHeader := c.Get("Authorization")
 		expectedToken := os.Getenv("AUTH_SCREENSHOTS")
-		
+
 		if expectedToken != "" && authHeader != "Bearer "+expectedToken {
 			return c.Status(401).JSON(fiber.Map{"error": "No autorizado"})
 		}
@@ -118,4 +122,6 @@ func main() {
 	<-quit
 
 	log.Println("Apagando servidor PancyScreenShots...")
+	discord.Close()
+	_ = app.Shutdown()
 }
