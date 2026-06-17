@@ -10,8 +10,8 @@ RUN apt-get update -y && apt-get install -y \
     libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev \
     libnss3 libxss1 libasound2 libatk-bridge2.0-0 libgtk-3-0 libgbm-dev
 
-# Instalar Go 1.22
-RUN curl -sSLo /tmp/go.tar.gz https://go.dev/dl/go1.22.2.linux-amd64.tar.gz && \
+# Instalar Go 1.26
+RUN curl -sSLo /tmp/go.tar.gz https://go.dev/dl/go1.26.4.linux-amd64.tar.gz && \
     tar -C /usr/local -xzf /tmp/go.tar.gz && \
     rm /tmp/go.tar.gz
 ENV PATH=$PATH:/usr/local/go/bin

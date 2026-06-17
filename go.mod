@@ -1,6 +1,6 @@
 module github.com/PancyStudios/PancyScreenShots
 
-go 1.22.0
+go 1.26.4
 
 require (
 	github.com/chromedp/cdproto v0.0.0-20260427013145-5737772c319b
