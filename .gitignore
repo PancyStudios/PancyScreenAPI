@@ -44,3 +44,4 @@ chrome_profile_nsfw/
 chrome_profile_sfw/
 
 package-lock.json
+install_pterodactyl.sh
