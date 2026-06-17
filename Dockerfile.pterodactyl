@@ -4,11 +4,15 @@ FROM ghcr.io/parkervcp/yolks:debian
 # Ejecutar como usuario root para poder instalar cosas
 USER root
 
-# Actualizar el sistema y descargar todas las librerías gráficas necesarias para Chrome Headless
+# Actualizar el sistema y descargar todas las librerías necesarias + SUDO
 RUN apt-get update -y && apt-get install -y \
-    curl unzip jq git build-essential \
+    curl unzip jq git build-essential sudo \
     libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev \
     libnss3 libxss1 libasound2 libatk-bridge2.0-0 libgtk-3-0 libgbm-dev
+
+# Dar permisos de sudo sin contraseña al usuario 'container'
+RUN echo "container ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/container && \
+    chmod 0440 /etc/sudoers.d/container
 
 # Instalar Go 1.26
 RUN curl -sSLo /tmp/go.tar.gz https://go.dev/dl/go1.26.4.linux-amd64.tar.gz && \
@@ -32,5 +36,7 @@ USER container
 ENV USER=container HOME=/home/container
 WORKDIR /home/container
 
-# Establecer las variables de entorno de Pterodactyl
+# Establecer las variables de entorno de Pterodactyl y Go
 ENV PATH=$PATH:/home/container/.local/bin
+ENV GOMODCACHE=/home/container/.gocache
+ENV GOPATH=/home/container/.go
