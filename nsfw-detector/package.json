@@ -2,7 +2,7 @@
   "name": "nsfw-detector",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,6 +16,11 @@
     "@tensorflow/tfjs-node": "^4.22.0",
     "express": "^5.2.1",
     "nsfwjs": "^4.3.0",
-    "pngjs": "^7.0.0"
+    "pngjs": "^7.0.0",
+    "tesseract.js": "^5.1.1"
+  },
+  "overrides": {
+    "@tensorflow/tfjs-core": "^4.22.0",
+    "@tensorflow/tfjs-converter": "^4.22.0"
   }
 }
